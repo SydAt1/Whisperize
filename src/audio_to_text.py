@@ -29,9 +29,15 @@ def transcribe_chunks(chunk_files, model_name="base"):
     model = whisper.load_model(model_name)
     transcripts = []
 
-    for i, chunk in enumerate(chunk_files):
-        print(f"Transcribing {chunk}...")
-        result = model.transcribe(chunk)
+    for i, chunk_path in enumerate(chunk_files):
+        chunk_path = os.path.abspath(chunk_path)  # make absolute path
+        print(f"Processing chunk: {chunk_path}")
+        
+        if not os.path.exists(chunk_path):
+            print(f"File not found: {chunk_path}")
+            continue
+        
+        result = model.transcribe(chunk_path)
         transcripts.append({
             "chunk_id": i,
             "transcript": result["text"].strip()
@@ -55,7 +61,7 @@ def save_dataset(transcripts, output_file):
 
 if __name__ == "__main__":
     mp3_path = "./dataset/test.mp3"
-    chunk_dir = ".dataset/chunks"
+    chunk_dir = "./dataset/chunks"
     output_file = "./dataset/output/dataset.json"
 
     # Step 1: split

@@ -1,8 +1,6 @@
 """After the summarization is generated
 this decorator will allow users to see the summary
 in a more readable format i.e. in text format
-and also give them the option to see the summary 
-in bullet points format.
 """
 
 import json
@@ -38,7 +36,7 @@ def json_to_text(json_file, title = "Summary"):
 def main():
     # Hardcoded file paths
     input_path = Path("./dataset/summarized/dataset_summarized.json")
-    output_path = Path("./dataset/summarized/dataset_summarized.txt")
+    output_path = Path("./dataset/summarized/normal/dataset_summarized.txt")
     title = "Summary"
     no_separator = False
 

@@ -41,4 +41,4 @@ def summarize_existing_dataset(input_file, output_file, chunk_minutes=5):
 
 
 if __name__ == "__main__":
-    summarize_existing_dataset("./dataset/output/dataset.json", "./dataset/summarized/dataset_summarized.json", 5)
+    summarize_existing_dataset("./dataset/output/dataset.json", "./dataset/summarized/normal/dataset_summarized.json", 5)
