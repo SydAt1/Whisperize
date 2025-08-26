@@ -77,8 +77,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
             animation: pulse 2s infinite;
+            overflow: hidden; 
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Changed to cover to fill the container */
+            object-position: center; /* Center the image */
+            display: block;
+            border-radius: 20px; /* Match the container's border-radius */
         }
 
         .title {
@@ -640,7 +649,9 @@
     
     <div class="container">
         <div class="header">
-            <div class="logo">🎵</div>
+            <div class="logo">
+                <img src="logo.png" alt="Whisperize Logo">
+            </div>
             <h1 class="title">Whisperize</h1>
             <p class="subtitle">Transform your audio into intelligent insights</p>
         </div>
